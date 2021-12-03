@@ -1,4 +1,7 @@
-#CMD Project
+#### HI IT'S NICKY I'M JUST TESTING HOW TO COMMIT ON GIT
+
+#Arsenal package: https://cran.r-project.org/web/packages/arsenal/vignettes/tableby.html
+
 
 set.seed(5)
 df <- data.frame(seq(1,250,1))
@@ -34,6 +37,19 @@ table(df$case_control)
 
 education <- c("primary", "highschool", "bachelor", "master", "phD")
 
+<<<<<<< HEAD
 df$education <- sample(education, 250, replace = TRUE, c(0.15, 0.5, 0.2, 0.1, 0.05))
 
 table(df$case_control)
+=======
+<<<<<<< HEAD
+=======
+# Education ---------------------------------------------------------------
+# Education ---------------------------------------------------------------
+# Education ---------------------------------------------------------------
+# Education ---------------------------------------------------------------
+# Education ---------------------------------------------------------------
+# Education ---------------------------------------------------------------
+
+>>>>>>> 01b5bc4e413503f0440743c20e559858ae69838b
+>>>>>>> 0acb19f6f3947451ef08fd100ae395515891f426
