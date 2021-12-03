@@ -1,3 +1,5 @@
+#### HI IT'S NICKY I'M JUST TESTING HOW TO COMMIT ON GIT
+
 
 set.seed(5)
 df <- data.frame(seq(1,250,1))
@@ -34,3 +36,4 @@ table(df$case_control)
 # Education ---------------------------------------------------------------
 
 education <- c("primary", "highschool", "bachelor", "master", "phD")
+
