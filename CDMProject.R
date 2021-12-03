@@ -1,4 +1,5 @@
 #### HI IT'S NICKY I'M JUST TESTING HOW TO COMMIT ON GIT
+### hi it's nicky's second message
 
 set.seed(5)
 df <- data.frame(seq(1,250,1))
