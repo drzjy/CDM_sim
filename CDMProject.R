@@ -40,6 +40,7 @@ table(df$case_control)
 
 education <- c("primary", "highschool", "bachelor", "master", "phD")
 
+#here's me testing
 <<<<<<< HEAD
 =======
 # Education ---------------------------------------------------------------
@@ -48,10 +49,16 @@ education <- c("primary", "highschool", "bachelor", "master", "phD")
 # Education ---------------------------------------------------------------
 # Education ---------------------------------------------------------------
 # Education ---------------------------------------------------------------
-# Education ---------------------------------------------------------------
-# Education ---------------------------------------------------------------
-# Education ---------------------------------------------------------------
-# Education ---------------------------------------------------------------
-# Education ---------------------------------------------------------------
-# Education ---------------------------------------------------------------
+
 >>>>>>> 01b5bc4e413503f0440743c20e559858ae69838b
+
+install.packages("randomNames")
+library(randomNames)
+randomNames(125,
+            0 ,
+            5,
+            which.names="both",
+            name.order="last.first",
+            name.sep=", ",
+            sample.with.replacement=TRUE,
+            return.complete.data=FALSE)
