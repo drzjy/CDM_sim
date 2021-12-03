@@ -1,5 +1,4 @@
-#### HI IT'S NICKY I'M JUST TESTING HOW TO COMMIT ON GIT
-### hi it's nicky's second message
+#CDM Simulation
 
 #Arsenal package: https://cran.r-project.org/web/packages/arsenal/vignettes/tableby.html
 
