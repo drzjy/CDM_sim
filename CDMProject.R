@@ -1,6 +1,11 @@
+#CMD Project
 
 set.seed(5)
 df <- data.frame(seq(1,250,1))
+
+
+# Create height BMI -------------------------------------------------------
+
 
 df$height <- rnorm(250, mean=160, sd=10)
 summary(height)
