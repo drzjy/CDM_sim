@@ -40,6 +40,7 @@ table(df$case_control)
 
 education <- c("primary", "highschool", "bachelor", "master", "phD")
 
+#here's me testing
 <<<<<<< HEAD
 =======
 # Education ---------------------------------------------------------------
