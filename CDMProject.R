@@ -1,4 +1,5 @@
 #### HI IT'S NICKY I'M JUST TESTING HOW TO COMMIT ON GIT
+### hi it's nicky's second message
 
 #Arsenal package: https://cran.r-project.org/web/packages/arsenal/vignettes/tableby.html
 
@@ -37,6 +38,7 @@ table(df$case_control)
 
 education <- c("primary", "highschool", "bachelor", "master", "phD")
 
+#here's me testing
 <<<<<<< HEAD
 df$education <- sample(education, 250, replace = TRUE, c(0.15, 0.5, 0.2, 0.1, 0.05))
 
@@ -52,4 +54,18 @@ table(df$case_control)
 # Education ---------------------------------------------------------------
 
 >>>>>>> 01b5bc4e413503f0440743c20e559858ae69838b
+<<<<<<< HEAD
 >>>>>>> 0acb19f6f3947451ef08fd100ae395515891f426
+=======
+
+install.packages("randomNames")
+library(randomNames)
+randomNames(125,
+            0 ,
+            5,
+            which.names="both",
+            name.order="last.first",
+            name.sep=", ",
+            sample.with.replacement=TRUE,
+            return.complete.data=FALSE)
+>>>>>>> 33bdcc4465790b8744f7891695774fd4dd5c9a49
