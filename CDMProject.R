@@ -34,3 +34,5 @@ table(df$case_control)
 # Education ---------------------------------------------------------------
 
 education <- c("primary", "highschool", "bachelor", "master", "phD")
+
+# Education ---------------------------------------------------------------
