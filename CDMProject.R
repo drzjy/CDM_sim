@@ -7,7 +7,7 @@ set.seed(5)
 df <- data.frame(seq(1,250,1))
 
 
-# Create height BMI -------------------------------------------------------
+# Create Height and BMI -------------------------------------------------------
 
 
 df$height <- rnorm(250, mean = 160, sd = 10)
@@ -16,15 +16,21 @@ summary(df$height)
 df$bmi <- rnorm(250, mean = 25, sd = 2)
 summary(df$bmi)
 
+# Create Cities -------------------------------------------------------
+
 cities <- c("Lisbon", "Oporto", "Paris", "Leon", "London", "Edinburgh", "Barcelona", "Madrid", "Munich", "Berlin")
 
 df$cities <- sample(cities, 250, replace = TRUE, c(0.02,0.01,0.27,0.03,0.02, 0.03, 0.02, 0.02, 0.13, 0.13))
+
+# Create Gender -------------------------------------------------------
 
 gender <- c("female", "male")
 
 df$gender <- sample(gender, 250, replace = TRUE)
 
 table(df$gender)
+
+# Create Case & Controls -------------------------------------------------------
 
 case_control <- c("control", "case")
 
@@ -40,21 +46,21 @@ education <- c("primary", "highschool", "bachelor", "master", "phD")
 
 df$education <- sample(education, 250, replace = TRUE, c(0.15, 0.5, 0.2, 0.1, 0.05))
 
-# Names ------
+# Names -------------------------------------------------------
 
 install.packages("randomNames")
 library(randomNames)
 randomNames(125,
             0 ,
             5,
-            which.names="both",
-            name.order="last.first",
-            name.sep=", ",
-            sample.with.replacement=TRUE,
-            return.complete.data=FALSE)
+            which.names = "both",
+            name.order = "last.first",
+            name.sep = ", ",
+            sample.with.replacement = TRUE,
+            return.complete.data = FALSE)
 
 
-# SNPs----
+# SNPs -------------------------------------------------------
 
 snpv <- c(0,1,2)
 
@@ -64,7 +70,7 @@ df$SNP3 <- sample(snpv, 250, replace = TRUE)
 df$SNP4 <- sample(snpv, 250, replace = TRUE)
 df$SNP5 <- sample(snpv, 250, replace = TRUE)
 
-# Expression ----
+# Expression -------------------------------------------------------
 
 set.seed(5)
 
