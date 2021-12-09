@@ -38,25 +38,10 @@ table(df$case_control)
 
 education <- c("primary", "highschool", "bachelor", "master", "phD")
 
-#here's me testing
-<<<<<<< HEAD
+
 df$education <- sample(education, 250, replace = TRUE, c(0.15, 0.5, 0.2, 0.1, 0.05))
 
-table(df$case_control)
-=======
-<<<<<<< HEAD
-=======
-# Education ---------------------------------------------------------------
-# Education ---------------------------------------------------------------
-# Education ---------------------------------------------------------------
-# Education ---------------------------------------------------------------
-# Education ---------------------------------------------------------------
-# Education ---------------------------------------------------------------
-
->>>>>>> 01b5bc4e413503f0440743c20e559858ae69838b
-<<<<<<< HEAD
->>>>>>> 0acb19f6f3947451ef08fd100ae395515891f426
-=======
+# Names ------
 
 install.packages("randomNames")
 library(randomNames)
@@ -68,4 +53,27 @@ randomNames(125,
             name.sep=", ",
             sample.with.replacement=TRUE,
             return.complete.data=FALSE)
->>>>>>> 33bdcc4465790b8744f7891695774fd4dd5c9a49
+
+
+# SNPs----
+
+snpv <- c(0,1,2)
+
+df$SNP1 <- sample(snpv, 250, replace = TRUE)
+df$SNP2 <- sample(snpv, 250, replace = TRUE)
+df$SNP3 <- sample(snpv, 250, replace = TRUE)
+df$SNP4 <- sample(snpv, 250, replace = TRUE)
+df$SNP5 <- sample(snpv, 250, replace = TRUE)
+
+# Expression ----
+
+set.seed(5)
+
+exp <- as.data.frame(replicate(n = 10, 
+          expr = rnorm(n = 250, mean = 0, sd = 0.3), 
+          simplify = FALSE),
+          col.names = c("exp1", "exp2", "exp3", "exp4", "exp5", "exp6", "exp7", "exp8", "exp9", "exp10"))
+
+summary(exp)
+
+df <- cbind(df, exp)
