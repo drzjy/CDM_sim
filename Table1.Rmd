@@ -19,13 +19,13 @@ df2 <- df2 %>%
   mutate_at(vars(starts_with("SNP")), ~factor(.))
 
 
-tab1 <- tableby(case_control ~ height + bmi + gender + education + SNP1 + SNP2 + SNP3 + SNP4 + SNP5 + exp1 + exp2 + exp3 + exp4 + exp5 + exp6 + exp7 + exp8 + exp9 + exp10,
+tab1 <- tableby(case_control ~ height + bmi + country + cities + gender + education + SNP1 + SNP2 + SNP3 + SNP4 + SNP5 + exp1 + exp2 + exp3 + exp4 + exp5 + exp6 + exp7 + exp8 + exp9 + exp10,
                 data = df2, 
                 control = tableby.control(numeric.test = "anova",
                                           cat.test = "chisq", 
                                           cat.simplify = TRUE,
                                           ordered.simplify = TRUE,
-                                          numeric.stats = c("N", "Nmiss","meansd", "medianq1q3", "medianrange"),
+                                          numeric.stats = c("meansd"),
                                           cat.stats = c("N", "Nmiss", "countpct")))
 
 summary(tab1, pfootnote = TRUE, title = "Descriptive Table", term.name = TRUE, total = TRUE, digits = 2)
