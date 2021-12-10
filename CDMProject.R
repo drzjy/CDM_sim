@@ -80,7 +80,7 @@ df$SNP5 <- sample(snpv, 250, replace = TRUE)
 
 
 exp <- as.data.frame(replicate(n = 10, 
-          expr = rnorm(n = 250, mean = 0, sd = 0.2), 
+          expr = rnorm(n = 250, mean = 0, sd = 0.3), 
           simplify = FALSE),
           col.names = c("exp1", "exp2", "exp3", "exp4", "exp5", "exp6", "exp7", "exp8", "exp9", "exp10"))
 
@@ -123,4 +123,10 @@ df2 <- df2 %>%
   relocate(names, .after = "subj")
 
 df2 <- df2[order(df2$id), ]
+
+
+
+names(df2)
+
+
 
