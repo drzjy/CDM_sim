@@ -1,19 +1,23 @@
 library(tidyverse)
 
-#CDM Simulation
+# CDM Simulation
 
 #Arsenal package: https://cran.r-project.org/web/packages/arsenal/vignettes/tableby.html
 
 
 set.seed(5)
+
+#Create df with id variable
+
 df <- data.frame(seq(1,250,1))
 names(df) <- c("id")
+
+# Create subjects
 
 df$subj <- paste0("A00001_", 1:250)
 
 
 # Create Height and BMI -------------------------------------------------------
-
 
 df$height <- rnorm(250, mean = 160, sd = 10)
 summary(df$height)
@@ -76,7 +80,7 @@ df$SNP3 <- sample(snpv, 250, replace = TRUE)
 df$SNP4 <- sample(snpv, 250, replace = TRUE)
 df$SNP5 <- sample(snpv, 250, replace = TRUE)
 
-# Expression -------------------------------------------------------
+# Genetic Expression -------------------------------------------------------
 
 
 exp <- as.data.frame(replicate(n = 10, 
@@ -92,6 +96,8 @@ df <- cbind(df, exp)
 
 install.packages("randomNames")
 library(randomNames)
+
+#Create fake names for male and women
 
 male <- randomNames(121,
             gender = 0,
@@ -109,13 +115,19 @@ female <- randomNames(129,
                     sample.with.replacement = TRUE,
                     return.complete.data = FALSE)
 
+# Split the original df according to gender to create variable names
+
 dfmale <- df[(df$gender == 'male'),]
 
 dffemale <- df[(df$gender == 'female'),]
 
+# Attribute the vector names to a new variable in each subgroup df
+
 dfmale$names <- male
 
 dffemale$names <- female
+
+#bind the df male and df female into 1
 
 df2 <- rbind(dfmale, dffemale)
 
@@ -123,10 +135,6 @@ df2 <- df2 %>%
   relocate(names, .after = "subj")
 
 df2 <- df2[order(df2$id), ]
-
-
-
-names(df2)
 
 
 

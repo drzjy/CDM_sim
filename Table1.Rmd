@@ -25,7 +25,7 @@ tab1 <- tableby(case_control ~ height + bmi + country + cities + gender + educat
                                           cat.test = "chisq", 
                                           cat.simplify = TRUE,
                                           ordered.simplify = TRUE,
-                                          numeric.stats = c("meansd"),
+                                          numeric.stats = c("N", "Nmiss", "meansd", "medianq1q3", "medianrange" ),
                                           cat.stats = c("N", "Nmiss", "countpct")))
 
 summary(tab1, pfootnote = TRUE, title = "Descriptive Table", term.name = TRUE, total = TRUE, digits = 2)
