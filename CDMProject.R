@@ -1,3 +1,5 @@
+library(tidyverse)
+
 #CDM Simulation
 
 #Arsenal package: https://cran.r-project.org/web/packages/arsenal/vignettes/tableby.html
@@ -7,7 +9,7 @@ set.seed(5)
 df <- data.frame(seq(1,250,1))
 names(df) <- c("id")
 
-df$subj <- paste0("A00001_", 1:1000)
+df$subj <- paste0("A00001_", 1:250)
 
 
 # Create Height and BMI -------------------------------------------------------
@@ -49,20 +51,6 @@ education <- c("primary", "highschool", "bachelor", "master", "phD")
 
 df$education <- sample(education, 250, replace = TRUE, c(0.15, 0.5, 0.2, 0.1, 0.05))
 
-# Names -------------------------------------------------------
-
-install.packages("randomNames")
-library(randomNames)
-randomNames(125,
-            0 ,
-            5,
-            which.names = "both",
-            name.order = "last.first",
-            name.sep = ", ",
-            sample.with.replacement = TRUE,
-            return.complete.data = FALSE)
-
-
 # SNPs -------------------------------------------------------
 
 snpv <- c(0,1,2)
@@ -75,7 +63,6 @@ df$SNP5 <- sample(snpv, 250, replace = TRUE)
 
 # Expression -------------------------------------------------------
 
-set.seed(5)
 
 exp <- as.data.frame(replicate(n = 10, 
           expr = rnorm(n = 250, mean = 0, sd = 0.3), 
@@ -85,3 +72,40 @@ exp <- as.data.frame(replicate(n = 10,
 summary(exp)
 
 df <- cbind(df, exp)
+
+# Names -------------------------------------------------------
+
+install.packages("randomNames")
+library(randomNames)
+
+male <- randomNames(121,
+            gender = 0,
+            which.names = "both",
+            name.order = "last.first",
+            name.sep = ", ",
+            sample.with.replacement = TRUE,
+            return.complete.data = FALSE)
+
+female <- randomNames(129,
+                    gender = 1,
+                    which.names = "both",
+                    name.order = "last.first",
+                    name.sep = ", ",
+                    sample.with.replacement = TRUE,
+                    return.complete.data = FALSE)
+
+dfmale <- df[(df$gender == 'male'),]
+
+dffemale <- df[(df$gender == 'female'),]
+
+dfmale$names <- male
+
+dffemale$names <- female
+
+df2 <- rbind(dfmale, dffemale)
+
+df2 <- df2 %>% 
+  relocate(names, .after = "subj")
+
+df2 <- df2[order(df2$id), ]
+
