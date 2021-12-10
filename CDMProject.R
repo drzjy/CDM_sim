@@ -80,7 +80,7 @@ df$SNP5 <- sample(snpv, 250, replace = TRUE)
 
 
 exp <- as.data.frame(replicate(n = 10, 
-          expr = rnorm(n = 250, mean = 0, sd = 0.2), 
+          expr = rnorm(n = 250, mean = 0, sd = 0.3), 
           simplify = FALSE),
           col.names = c("exp1", "exp2", "exp3", "exp4", "exp5", "exp6", "exp7", "exp8", "exp9", "exp10"))
 
@@ -129,28 +129,4 @@ df2 <- df2[order(df2$id), ]
 names(df2)
 
 
-###
-library(ggplot2)
-
-#HISTO - height + normal distribution overlay
-
-hist(df2$height, 
-     freq = FALSE, 
-     main="Distribution of Height",
-     xlab="Height (m)",
-     col="lightblue")
-
-x <- seq(min(df2$height), max(df2$height))
-f <- dnorm(x, mean = mean(df2$height), sd = sd(df2$height))
-lines(x, f, col = "red", lwd = 4)
-
-
-
-
-hist(df2$bmi)
-
-
-
-df2$country <- as.factor(df2$country)
-plot(df2$country)
 
