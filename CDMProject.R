@@ -5,6 +5,9 @@
 
 set.seed(5)
 df <- data.frame(seq(1,250,1))
+names(df) <- c("id")
+
+df$subj <- paste0("A00001_", 1:1000)
 
 
 # Create Height and BMI -------------------------------------------------------
