@@ -23,10 +23,25 @@ summary(df$bmi)
 
 # Create Cities -------------------------------------------------------
 
-cities <- c("Lisbon", "Oporto", "Paris", "Leon", "London", "Edinburgh", "Barcelona", "Madrid", "Munich", "Berlin")
+cities <- c("Lisbon", "Oporto", "Paris", "Lyon", "London", "Edinburgh", "Barcelona", "Madrid", "Munich", "Berlin")
 
 df$cities <- sample(cities, 250, replace = TRUE, c(0.02,0.01,0.27,0.03,0.02, 0.03, 0.02, 0.02, 0.13, 0.13))
 
+
+# Create Countries -------------------------------------------------------
+
+df$country = "Portugal"
+
+df <- df %>% 
+  mutate(country = ifelse(cities == "Barcelona" | cities == "Madrid", "Spain", country)) %>% 
+  mutate(country = ifelse(cities == "Paris" | cities == "Lyon", "France", country)) %>% 
+  mutate(country = ifelse(cities == "London" | cities == "Edinburgh", "UK", country)) %>% 
+  mutate(country = ifelse(cities == "Berlin" | cities == "Munich", "Germany", country))
+
+df <- df %>% 
+  relocate(country, .after = "bmi")
+
+         
 # Create Gender -------------------------------------------------------
 
 gender <- c("female", "male")
