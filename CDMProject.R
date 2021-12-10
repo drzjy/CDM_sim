@@ -124,3 +124,33 @@ df2 <- df2 %>%
 
 df2 <- df2[order(df2$id), ]
 
+
+
+names(df2)
+
+
+###
+library(ggplot2)
+
+#HISTO - height + normal distribution overlay
+
+hist(df2$height, 
+     freq = FALSE, 
+     main="Distribution of Height",
+     xlab="Height (m)",
+     col="lightblue")
+
+x <- seq(min(df2$height), max(df2$height))
+f <- dnorm(x, mean = mean(df2$height), sd = sd(df2$height))
+lines(x, f, col = "red", lwd = 4)
+
+
+
+
+hist(df2$bmi)
+
+
+
+df2$country <- as.factor(df2$country)
+plot(df2$country)
+
